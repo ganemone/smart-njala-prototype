@@ -145,6 +145,6 @@ Individual contributors include:
 
 [license-section]: #LICENSE
 [ramp]: https://github.com/AlyceBrady/ramp/
-[install]: /document/index/document/..%252F..%252Finstallation%252FINSTALL.md
+[install]: /INSTALL.md
 [license]:  /LICENSE.md
 

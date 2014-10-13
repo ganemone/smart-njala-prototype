@@ -310,7 +310,7 @@ on creating user documents (e.g., help documents) might want to know
 more about [Markdown][md].
 
 
-[install]: /document/index/document/..%252F..%252Finstallation%252FINSTALL.md
+[install]: /document/index/document/..%252F..%252FINSTALL.md
 [activities]: /document/index/document/rampDocs%252FActivityLists.md
 [settings]: /document/index/document/rampDocs%252FTableSettings.md
 [md]:  http://michelf.ca/projects/php-markdown/
