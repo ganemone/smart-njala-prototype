@@ -4,8 +4,6 @@ Welcome to the Njala Prototype version of the SMART Project.
 
 #### SMART ####
 
-Smart is a program based on [RAMP] [ramp]
-
 Smart is a program
 for managing records needed to support an academic institution.  It
 currently supports managing administrative and academic records in
