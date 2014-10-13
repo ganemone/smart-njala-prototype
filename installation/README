@@ -1,0 +1,116 @@
+SMART: Software for Managing Academic Records and Transcripts
+    Prototype developed for Njala University.
+    Built on top of RAMP - Record and Activity Management Program
+
+The files in this directory are meant to help you create one or more
+databases to use with the Njala Smart Prototype.
+
+This directory contains a number of files that:
+  -- Create appropriate MySQL accounts (if they don't exist already).
+  -- Create basic tables used by the underlying RAMP framework for
+     such things as authentication, authorization, and record locking.
+  -- Create prototype Smart tables developed for Njala University.
+
+You may use these files as guides for creating accounts interactively
+in MySQL, or you may edit them and then use them as scripts within MySQL:
+     mysql> SOURCE filename.sql
+
+SECURITY CONCERNS:
+Please read the installation instructions in INSTALL_DB.txt,
+particularly the section on "Addressing Security Concerns,"
+BEFORE using these files as guides or using them as scripts.
+AT THE VERY LEAST, use different passwords than are specified in the
+files that create MySQL accounts.  If you put new passwords in a file
+to read as a script, change the permissions on the file before-hand,
+to be readable only by the owner.
+
+The rest of this file contains instructions for creating either a
+development environment (a sample environment whose data you can view
+and change) or a production environment and parallel versions
+for safe experimentation and for staging upgrades before they go into
+production.
+
+
+---------------------
+
+CREATING A DEVELOPMENT ENVIRONMENT:  (`njala_proto` database)
+
+createDevelMysqlAccts.sql
+    Working with Smart requires two types of Mysql Accounts:  database
+    administrator accounts (one for each DBA) and a single account that is
+    used by the web-based SMART software.  The createDevelMysqlAccts.sql
+    file has commands that create both and grant them appropriate
+    permissions on the njala_proto database.  If you already have
+    appropriate database administrator accounts (or an existing account
+    for Smart to use), you can comment out the appropriate commands.
+    In that case, make sure you edit the GRANT commands to use your
+    existing accounts.
+
+    You must run MySQL as root (or some other user that has CREATE USER
+    and GRANT permissions to execute the commands found in this file.
+
+    ==> Instructions:
+        Change permissions of createDevelMysqlAccts.sql to be readable
+            only to you.
+        Edit the file to create appropriate account names and passwords,
+            or comment out the CREATE USER commands if you have existing
+            accounts.  In either case, update the GRANT commands to
+            refer to the appropriate account names.
+        Run MySQL as root to execute the commands, e.g.,
+            mysql> SOURCE createDevelMysqlAccts.sql
+
+setupSmartDB.sql
+    This file calls most of the other files in the directory.  They
+    clear out the contents of the njala_proto database (if a previous
+    version existed), and create
+
+    ==> Instructions:
+        Run MySQL as root or as a SMART DBA and run the setupSmartDB.sql
+        script:
+            mysql> SOURCE setupSmartDB.sql
+
+In order for SMART to use the MySQL account you have set up for it and
+access the database, you will need to specify the account username,
+password, and database in an application.ini file in the configs
+directory.
+
+==> See the README file in the configs directory for more information.
+
+
+---------------------
+
+CREATING PRODUCTION, TEST, and STAGED ENVIRONMENTS:
+
+createDraftProductionMysqlAccts.sql
+    This file has examples of commands to create DBA accounts and
+    accounts used by the SMART software itself, and to grant them
+    appropriate permissions on the database associated with each
+    environment.  You may set up different DBA and Smart accounts
+    for each environment, use existing DBA accounts for all three
+    environments, or even use the same Smart account for all three
+    environments.  Setting up a different Smart account for each
+    environment provides greater separation between the production
+    and test/staged environments.
+
+    If you edit this file and use it as a script, you should change its
+    permissions first to be readable only to you.
+    You must run MySQL as root (or some other user that has CREATE USER
+    and GRANT permissions to execute the commands found in this file.
+
+Creating the databases for each environment:
+    You can use the files in this directory as a template for creating
+    production and test/staged databases, one-by-one.  First edit the
+    files in the directory to remove the USE `njala_proto`; statements.
+    This need only be done once.  (They are there because in a development
+    environment one occasionally wants to re-initialize select tables
+    after testing.)  Then edit the setupSmartDB.sql script to refer to
+    each database in turn (`njala_production`, `njala_test_env`, and
+    `njala_stage_env`, or whatever you called them) and run the script.
+
+In order for SMART to use the MySQL accounts you have set up for it and
+access the databases, you will need to specify the account usernames,
+passwords, and databases in appropriate sections of an application.ini
+file in the configs directory.
+
+==> See the README file in the configs directory for more information.
+
