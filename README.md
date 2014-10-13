@@ -4,7 +4,7 @@ Welcome to the Njala Prototype version of the SMART Project.
 
 #### SMART ####
 
-Smart is a Ramp-based program based on [RAMP] [ramp]
+Smart is a program based on [RAMP] [ramp]
 that provides a set of activity files and
 table settings appropriate for managing academic records, including
 curriculum records (_e.g._, programs available, course modules, and
@@ -25,7 +25,7 @@ Released on October 12, 2014.
 
 ### SYSTEM REQUIREMENTS ###
 
-See the RAMP README file for RAMP's System Requirements.
+See the [RAMP README] [ramp] file for RAMP's System Requirements.
 
 ### INSTALLATION ###
 
@@ -44,12 +44,13 @@ environment, see the full Installation manual.)
   DBA and Smart usernames and passwords (or _at least_ the passwords) to
   provide the most basic security.
 - Go into `mysql` as root and read in the new file and `setupSmartDB.sql:
-    > SOURCE createMysqlAccts.sql;
-    > SOURCE setupSmartDB.sql;
-    > quit
+
+    SOURCE createMysqlAccts.sql;
+    SOURCE setupSmartDB.sql;
+    quit
 
 Create a customized configuration file with the correct username and
-password.
+password:
 
 - Go to the `configs` subdirectory.
 - Copy template_custom_properties.ini to `custom_properties.ini` and make sure
@@ -58,14 +59,33 @@ password.
   change the username and password to the Smart username and password
   set in the `createMysqlAccts.sql` file above.  You may wish to
   customize other properties as well (see the `README` file in the
-  `configs` directory).
+  `configs` directory for more details).
 - Create an `application.ini` file that contains the following "building
   block" files in the specified order:
     `ramp_basics.ini`, `ramp_defaults.ini`, `smart_defaults.ini`, and
     `custom_properties.ini
   For example,
-    `cat ramp_basics.ini ramp_defaults.ini smart_defaults.ini >application.ini`
-    `cat custom_properties.ini >>application.ini`
+
+    cat ramp_basics.ini ramp_defaults.ini smart_defaults.ini >application.ini
+    cat custom_properties.ini >>application.ini
+
+Include basic documentation and adminstrative table settings from Ramp:
+
+- Create a copy or link of Ramp's `application/docs` directory, called
+  `rampDocs` under the `docs` directory in this installation.  For example,
+  the following command from the `docs` subdirectory on a
+  Unix/Linux/MacOS system would create an appropriate symbolic link:
+
+    ln -s ../../ramp/application/docs rampDocs
+
+- Create a copy or link of Ramp's `application/adminSettings` directory,
+  called `rampAdmin` under the `settings/Admin` directory in this
+  installation.  For example, from the `settings` subdirectory:
+
+    ln -s ../../ramp/application/adminSettings Admin/rampAdmin
+
+- Add the docs/rampDocs and settings/Admin/rampAdmin directories to your
+  `.gitignore` file if you are using `git`.
 
 Bring up a Njala Prototype version of Smart in a browser, using the
 following URL:
