@@ -138,7 +138,7 @@ Individual contributors include:
 
 [license-section]: #LICENSE
 [ramp]: https://github.com/AlyceBrady/ramp/
-[aboutSmart]: /document/index/document/rampDocs%252FsmartAbout.md
+[aboutSmart]: /docs/smartDocs/smartAbout.md
 [install]: /document/index/document/..%252F..%252Finstallation%252FINSTALL.md
-[license]:  /document/index/document/..%252F..%252FLICENSE.md
+[license]:  /LICENSE.md
 
