@@ -29,7 +29,49 @@ See the RAMP README file for RAMP's System Requirements.
 
 ### INSTALLATION ###
 
-Please see [INSTALL.md] [install].  (Under construction...)
+Install [Ramp] [ramp], using the Installation Instructions provided with it.
+
+Download or clone this repository under your server's Document Root or
+your personal web page area.
+
+Set up the `njala_proto` database:  (The instructions below are for
+setting up a demo or development environment; to set up a production
+environment, see the full Installation manual.)
+
+- Go to the `installation` subdirectory.
+- Copy createDevelMysqlAccts.sql (e.g., to createMysqlAccts.sql) and
+  make sure the file is readable only to you.  Edit it and change the
+  DBA and Smart usernames and passwords (or _at least_ the passwords) to
+  provide the most basic security.
+- Go into `mysql` as root and read in the new file and `setupSmartDB.sql:
+    > SOURCE createMysqlAccts.sql;
+    > SOURCE setupSmartDB.sql;
+    > quit
+
+Create a customized configuration file with the correct username and
+password.
+
+- Go to the `configs` subdirectory.
+- Copy template_custom_properties.ini to `custom_properties.ini` and make sure
+  the file is readable only to you and the `www-data` group (or whatever
+  group your web server is part of).  Edit `custom_properties.ini` and
+  change the username and password to the Smart username and password
+  set in the `createMysqlAccts.sql` file above.  You may wish to
+  customize other properties as well (see the `README` file in the
+  `configs` directory).
+- Create an `application.ini` file that contains the following "building
+  block" files in the specified order:
+    `ramp_basics.ini`, `ramp_defaults.ini`, `smart_defaults.ini`, and
+    `custom_properties.ini
+  For example,
+    `cat ramp_basics.ini ramp_defaults.ini smart_defaults.ini >application.ini`
+    `cat custom_properties.ini >>application.ini`
+
+Bring up a Njala Prototype version of Smart in a browser, using the
+following URL:
+- /smart-njala-prototype/public/
+
+Please see [INSTALL.md] [install] for more detailed information.  (Under construction...)
 
 <h3 id="LICENSE"> LICENSE INFORMATION </h3>
 
@@ -75,7 +117,7 @@ Individual contributors include:
 >   Riley Wetzel  
 
 [license-section]: #LICENSE
-[ramp]: /document/index/document/..%252F..%252F..%252Framp%252FREADME.md
+[ramp]: https://github.com/AlyceBrady/ramp/
 [aboutSmart]: /document/index/document/rampDocs%252FsmartAbout.md
 [install]: /document/index/document/..%252F..%252Finstallation%252FINSTALL.md
 [license]:  /document/index/document/..%252F..%252FLICENSE.md
