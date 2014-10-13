@@ -5,17 +5,26 @@ Welcome to the Njala Prototype version of the SMART Project.
 #### SMART ####
 
 Smart is a program based on [RAMP] [ramp]
-that provides a set of activity files and
-table settings appropriate for managing academic records, including
-curriculum records (_e.g._, programs available, course modules, and
-course module schedules) and student records (_e.g._, enrolled
-program, course module history, test scores).
 
-For more information about Smart, see [About SMART] [aboutSmart].
+Smart is a program
+for managing records needed to support an academic institution.  It
+currently supports managing administrative and academic records in
+three broad categories: curriculum records, staff records, and
+student records.
+
+Smart is built on top of [Ramp] [ramp] (Record and Activity Management
+Program), which provides mechanisms for creating
+_activity pages_ for choosing among various activities
+and _table settings_ for viewing and updating records in database tables.
+Smart is, then, primarily a set of customized _activity pages_ and _table
+settings_, along with documentation, to support managing administrative
+and academic records.
+Ramp, in turn, is built on MySQL, PHP, and the Zend Framework.
 
 In time, the plan is to expand Smart to include customized activities
-specific to the academic records domain (as opposed to the more
-general-purpose activities supported by Ramp).
+specific to the academic records domain, such as student registration
+and generation of transcripts, in addition to the more
+general-purpose activities supported by Ramp.
 
 
 ### RELEASE INFORMATION ###
@@ -138,7 +147,6 @@ Individual contributors include:
 
 [license-section]: #LICENSE
 [ramp]: https://github.com/AlyceBrady/ramp/
-[aboutSmart]: /docs/smartDocs/smartAbout.md
 [install]: /document/index/document/..%252F..%252Finstallation%252FINSTALL.md
 [license]:  /LICENSE.md
 
