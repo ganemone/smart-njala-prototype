@@ -78,21 +78,25 @@ password:
 
 Include basic documentation and adminstrative table settings from Ramp:
 
-- Create a copy or link of Ramp's `application/docs` directory, called
-  `rampDocs` under the `docs` directory in this installation.  For example,
-  the following command from the `docs` subdirectory on a
-  Unix/Linux/MacOS system would create an appropriate symbolic link:
+- Create a copy or link of Ramp's `README.md` file, called
+  `rampREADME.md`, in the top-level directory of this installation.
+  Then create a copy or link of Ramp's `application/docs` directory,
+  called `rampDocs`, under the `docs` directory in this installation.
+  Finally, create a copy or link of Ramp's `application/adminSettings`
+  directory, called `rampAdmin`, under the `settings/Admin` directory.
 
+  For example, in the top-level directory (the one containing this
+  `README.md` file) the following commands on a Unix/Linux/MacOS
+  system would create an appropriate symbolic links:
+
+    ln -s ../ramp/README.md rampREADME.md
+    cd docs
     ln -s ../../ramp/application/docs rampDocs
-
-- Create a copy or link of Ramp's `application/adminSettings` directory,
-  called `rampAdmin` under the `settings/Admin` directory in this
-  installation.  For example, from the `settings` subdirectory:
-
+    cd ../settings
     ln -s ../../ramp/application/adminSettings Admin/rampAdmin
 
-- Add the docs/rampDocs and settings/Admin/rampAdmin directories to your
-  `.gitignore` file if you are using `git`.
+- If you are using git, add the rampREADME.md file and the docs/rampDocs
+  and settings/Admin/rampAdmin directories to your `.gitignore` file.
 
 Bring up a Njala Prototype version of Smart in a browser, using the
 following URL:

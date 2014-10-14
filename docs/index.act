@@ -20,10 +20,10 @@ type = "separator"
 
 [About Ramp]
 
-type = "document"
+type = "url"
 title = "About Ramp"
 description = "About Ramp: Records and Activity Management Program"
-source = "rampDocs/rampAbout.md"
+source = "/rampREADME.md"
 
 [About Smart]
 
@@ -31,7 +31,7 @@ type = "document"
 title = "About Smart"
 description = "About Smart: Software for Managing Academic Records and
 Transcripts"
-source = "smartDocs/smartAbout.md"
+source = "/README.md"
 
 [Smart User Man]
 
