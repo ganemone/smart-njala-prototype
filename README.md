@@ -4,19 +4,18 @@ Welcome to the Njala Prototype version of the SMART Project.
 
 #### SMART ####
 
-Smart is a program
-for managing records needed to support an academic institution.  It
-currently supports managing administrative and academic records in
-three broad categories: curriculum records, staff records, and
-student records.
+Smart is a program for managing records needed to support an academic
+institution.  It currently supports managing administrative and
+academic records in three broad categories: curriculum records,
+staff records, and student records.
 
 Smart is built on top of [Ramp] [ramp] (Record and Activity Management
-Program), which provides mechanisms for creating
-_activity pages_ for choosing among various activities
-and _table settings_ for viewing and updating records in database tables.
-Smart is, then, primarily a set of customized _activity pages_ and _table
-settings_, along with documentation, to support managing administrative
-and academic records.
+Program), which provides mechanisms for creating _activity pages_
+for choosing among various activities and _table settings_ for
+viewing and updating records in database tables.  Smart is, then,
+primarily a set of customized _activity pages_ and _table settings_,
+along with documentation, to support managing administrative and
+academic records.
 Ramp, in turn, is built on MySQL, PHP, and the Zend Framework.
 
 In time, the plan is to expand Smart to include customized activities
@@ -37,70 +36,89 @@ See the [RAMP README] [ramp] file for RAMP's System Requirements.
 ### INSTALLATION ###
 
 Install [Ramp] [ramp], using the Installation Instructions provided with it.
+A simplified version of those instructions appear here.
 
-Download or clone this repository under your server's Document Root or
+1. Download or clone this repository under your server's Document Root or
 your personal web page area.
 
-Set up the `njala_proto` database:  (The instructions below are for
+1. Set up a virtual host for this Smart instance.
+
+    > If you have the appropriate powers on your server, create a virtual host
+    for this repository.  (Zend, and therefore RAMP, works better under its
+    own virtual host.)  The actual steps to take depend on your operating
+    system, but involve adding the virtual host information to your system
+    and then restarting the web server.  For example, on a Debian or Ubuntu
+    system you would do the following using `sudo`:
+
+        > Edit the smart-njala-proto.conf file in the `installation` directory
+            to set an appropriate ServerName and DocumentRoot.  
+        Copy smart-njala-proto.conf to /etc/apache2/sites-available.  
+        Enable the site:  a2ensite smart-njala-proto.  
+        Restart the apache server (e.g., service apache2 reload).  
+
+1. Set up the `njala_proto` database:  (The instructions below are for
 setting up a demo or development environment; to set up a production
 environment, see the full Installation manual.)
 
-- Go to the `installation` subdirectory.
-- Copy createDevelMysqlAccts.sql (e.g., to createMysqlAccts.sql) and
-  make sure the file is readable only to you.  Edit it and change the
-  DBA and Smart usernames and passwords (or _at least_ the passwords) to
-  provide the most basic security.
-- Go into `mysql` as root and read in the new file and `setupSmartDB.sql:
+    - Go to the `installation/installDB` subdirectory.
+    - Copy createDevelMysqlAccts.sql (e.g., to createMysqlAccts.sql) and
+      make sure the file is readable only to you.  Edit it and change the
+      DBA and Smart usernames and passwords (or _at least_ the passwords) to
+      provide the most basic security.
+    - Go into `mysql` as root and read in the new file and `setupSmartDB.sql:
 
-    SOURCE createMysqlAccts.sql;
-    SOURCE setupSmartDB.sql;
-    quit
+        SOURCE createMysqlAccts.sql;
+        SOURCE setupSmartDB.sql;
+        quit
 
-Create a customized configuration file with the correct username and
+1. Create a customized configuration file with the correct username and
 password:
 
-- Go to the `configs` subdirectory.
-- Copy template_custom_properties.ini to `custom_properties.ini` and make sure
-  the file is readable only to you and the `www-data` group (or whatever
-  group your web server is part of).  Edit `custom_properties.ini` and
-  change the username and password to the Smart username and password
-  set in the `createMysqlAccts.sql` file above.  You may wish to
-  customize other properties as well (see the `README` file in the
-  `configs` directory for more details).
-- Create an `application.ini` file that contains the following "building
-  block" files in the specified order:
-    `ramp_basics.ini`, `ramp_defaults.ini`, `smart_defaults.ini`, and
-    `custom_properties.ini
-  For example,
+    - Go to the `configs` subdirectory.
+    - Copy template_custom_properties.ini to `custom_properties.ini` and
+      make sure
+      the file is readable only to you and the `www-data` group (or whatever
+      group your web server is part of).  Edit `custom_properties.ini` and
+      change the username and password to the Smart username and password
+      set in the `createMysqlAccts.sql` file above.  You may wish to
+      customize other properties as well (see the `README` file in the
+      `configs` directory for more details).
+    - Create an `application.ini` file that contains the following "building
+      block" files in the specified order:
+        `ramp_basics.ini`, `ramp_defaults.ini`, `smart_defaults.ini`, and
+        `custom_properties.ini
+      For example,
 
-    cat ramp_basics.ini ramp_defaults.ini smart_defaults.ini >application.ini
-    cat custom_properties.ini >>application.ini
+        cat ramp_basics.ini ramp_defaults.ini smart_defaults.ini >application.ini
+        cat custom_properties.ini >>application.ini
 
-Include basic documentation and adminstrative table settings from Ramp:
+1. Include basic documentation and adminstrative table settings from Ramp:
 
-- Create a copy or link of Ramp's `README.md` file, called
-  `rampREADME.md`, in the top-level directory of this installation.
-  Then create a copy or link of Ramp's `application/docs` directory,
-  called `rampDocs`, under the `docs` directory in this installation.
-  Finally, create a copy or link of Ramp's `application/adminSettings`
-  directory, called `rampAdmin`, under the `settings/Admin` directory.
+    - Create a copy or link of Ramp's `README.md` file, called
+      `rampREADME.md`, in the top-level directory of this installation.
+      Then create a copy or link of Ramp's `application/docs` directory,
+      called `rampDocs`, under the `docs` directory in this installation.
+      Finally, create a copy or link of Ramp's `application/adminSettings`
+      directory, called `rampAdmin`, under the `settings/Admin` directory.
 
-  For example, in the top-level directory (the one containing this
-  `README.md` file) the following commands on a Unix/Linux/MacOS
-  system would create an appropriate symbolic links:
+      For example, in the top-level directory (the one containing this
+      `README.md` file) the following commands on a Unix/Linux/MacOS
+      system would create an appropriate symbolic links:
 
-    ln -s ../ramp/README.md rampREADME.md
-    cd docs
-    ln -s ../../ramp/application/docs rampDocs
-    cd ../settings
-    ln -s ../../ramp/application/adminSettings Admin/rampAdmin
+        ln -s ../ramp/README.md rampREADME.md
+        cd docs
+        ln -s ../../ramp/application/docs rampDocs
+        cd ../settings
+        ln -s ../../ramp/application/adminSettings Admin/rampAdmin
 
-- If you are using git, add the rampREADME.md file and the docs/rampDocs
-  and settings/Admin/rampAdmin directories to your `.gitignore` file.
+    - If you are using git, add the `rampREADME.md` file and the
+      `docs/rampDocs` and `settings/Admin/rampAdmin` directories to
+      your `.gitignore` file.
 
-Bring up a Njala Prototype version of Smart in a browser, using the
+1. Bring up a Njala Prototype version of Smart in a browser, using the
 following URL:
-- /smart-njala-prototype/public/
+
+    /smart-njala-prototype/public/
 
 Please see [INSTALL.md] [install] for more detailed information.  (Under construction...)
 

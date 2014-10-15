@@ -2,10 +2,11 @@ SMART: Software for Managing Academic Records and Transcripts
     Prototype developed for Njala University.
     Built on top of RAMP - Record and Activity Management Program
 
-The files in this directory are meant to help you create one or more
-databases to use with the Njala Smart Prototype.
+This directory contains instructions and sample files to help you create
+an Apache virtual host and to set up one or more databases to use
+with the Njala Smart Prototype.
 
-This directory contains a number of files that:
+The installDB directory contains a number of files that:
   -- Create appropriate MySQL accounts (if they don't exist already).
   -- Create basic tables used by the underlying RAMP framework for
      such things as authentication, authorization, and record locking.
@@ -15,14 +16,33 @@ You may use these files as guides for creating accounts interactively
 in MySQL, or you may edit them and then use them as scripts within MySQL:
      mysql> SOURCE filename.sql
 
-SECURITY CONCERNS:
-Please read the installation instructions in INSTALL_DB.txt,
-particularly the section on "Addressing Security Concerns,"
-BEFORE using these files as guides or using them as scripts.
-AT THE VERY LEAST, use different passwords than are specified in the
-files that create MySQL accounts.  If you put new passwords in a file
-to read as a script, change the permissions on the file before-hand,
-to be readable only by the owner.
+    SECURITY CONCERNS:
+    Please read the installation instructions in INSTALL_DB.txt,
+    particularly the section on "Addressing Security Concerns,"
+    BEFORE using these files as guides or using them as scripts.
+    AT THE VERY LEAST, use different passwords than are specified
+    in the files that create MySQL accounts.  If you put new passwords
+    in a file to read as a script, change the permissions on the
+    file before-hand, to be readable only by the owner.
+
+## Creating an Apache virtual host ##
+
+The smart-njala-proto.conf file contains a sample VirtualHost definition
+for a virtual host named smart.nu.edu.sl.  Edit that file to give it
+the name you want, making sure that the DocumentRoot is also set
+correctly.  How you turn on a virtual host depends on your operating
+system; for example, on a Debian or Ubuntu server, you would do the
+following (using sudo for all three steps):
+
+    Copy smart-njala-proto.conf to /etc/apache2/sites-available.
+    Enable the site:  a2ensite smart-njala-proto.
+    Restart the apache server (e.g., service apache2 reload).
+
+On some other systems, such as MacOS, you would copy the virtual host
+definition from smart-njala-proto.conf into a system-wide virtual host
+configuration file (e.g., /etc/apache2/extra/httpd-vhosts.conf).
+
+## Creating Smart Environment databases ##
 
 The rest of this file contains instructions for creating either a
 development environment (a sample environment whose data you can view
@@ -31,9 +51,7 @@ for safe experimentation and for staging upgrades before they go into
 production.
 
 
----------------------
-
-CREATING A DEVELOPMENT ENVIRONMENT:  (`njala_proto` database)
+### CREATING A DEVELOPMENT ENVIRONMENT:  (`njala_proto` database) ###
 
 createDevelMysqlAccts.sql
     Working with Smart requires two types of Mysql Accounts:  database
@@ -77,9 +95,7 @@ directory.
 ==> See the README file in the configs directory for more information.
 
 
----------------------
-
-CREATING PRODUCTION, TEST, and STAGED ENVIRONMENTS:
+### CREATING PRODUCTION, TEST, and STAGED ENVIRONMENTS: ###
 
 createDraftProductionMysqlAccts.sql
     This file has examples of commands to create DBA accounts and
