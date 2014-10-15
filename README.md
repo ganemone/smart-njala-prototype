@@ -50,11 +50,12 @@ your personal web page area.
     and then restarting the web server.  For example, on a Debian or Ubuntu
     system you would do the following using `sudo`:
 
-        > Edit the smart-njala-proto.conf file in the `installation` directory
-            to set an appropriate ServerName and DocumentRoot.  
-        Copy smart-njala-proto.conf to /etc/apache2/sites-available.  
-        Enable the site:  a2ensite smart-njala-proto.  
-        Restart the apache server (e.g., service apache2 reload).  
+        > Copy `smart-njala-proto.conf` to `/etc/apache2/sites-available`.  
+        Edit the `smart-njala-proto.conf` copy in the `sites-available`
+            directory to set an appropriate ServerAdmin, ServerName and
+            DocumentRoot.  
+        Enable the site:  `a2ensite smart-njala-proto`.  
+        Restart the apache server (e.g., `service apache2 reload`).  
 
 1. Set up the `njala_proto` database:  (The instructions below are for
 setting up a demo or development environment; to set up a production
@@ -65,7 +66,7 @@ environment, see the full Installation manual.)
       make sure the file is readable only to you.  Edit it and change the
       DBA and Smart usernames and passwords (or _at least_ the passwords) to
       provide the most basic security.
-    - Go into `mysql` as root and read in the new file and `setupSmartDB.sql:
+    - Go into `mysql` as root and read in the new file and `setupSmartDB.sql`:
 
         SOURCE createMysqlAccts.sql;
         SOURCE setupSmartDB.sql;
@@ -86,11 +87,11 @@ password:
     - Create an `application.ini` file that contains the following "building
       block" files in the specified order:
         `ramp_basics.ini`, `ramp_defaults.ini`, `smart_defaults.ini`, and
-        `custom_properties.ini
+        `custom_properties.ini`.
       For example,
 
-        cat ramp_basics.ini ramp_defaults.ini smart_defaults.ini >application.ini
-        cat custom_properties.ini >>application.ini
+        cat ramp_basics.ini ramp_defaults.ini >application.ini
+        cat smart_defaults.ini custom_properties.ini >>application.ini
 
 1. Include basic documentation and adminstrative table settings from Ramp:
 
