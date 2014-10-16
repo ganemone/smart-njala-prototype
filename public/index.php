@@ -12,28 +12,26 @@ defined('APP_ENV_PATH')
 
 // Define path to RAMP repository
 defined('RAMP_PATH')
-    || define('RAMP_PATH',
-        realpath('APP_ENV_PATH' . '/../ramp'));
+    || define('RAMP_PATH', APP_ENV_PATH . '/../ramp');
 
 // Define path to RAMP "application" directory
 defined('APPLICATION_PATH')
-    || define('APPLICATION_PATH',
-        realpath('RAMP_PATH' . '/application'));
+    || define('APPLICATION_PATH', RAMP_PATH . '/application');
 
 // Define path to RAMP "docs" directory
 defined('RAMP_DOCS_PATH')
-    || define('RAMP_DOCS_PATH',
-        realpath('APPLICATION_PATH' . '/docs'));
+    || define('RAMP_DOCS_PATH', APPLICATION_PATH . '/docs');
 
 // Define path to RAMP "adminSettings" directory
 defined('RAMP_ADMIN_SETTINGS_PATH')
     || define('RAMP_ADMIN_SETTINGS_PATH',
-        realpath('APPLICATION_PATH' . '/adminSettings'));
+        APPLICATION_PATH . '/adminSettings');
 
 // Ensure library is on include_path
 set_include_path(implode(PATH_SEPARATOR, array(
-    realpath('RAMP_PATH' . '/library'),
-    get_include_path(),)));
+    realpath(RAMP_PATH . '/library'),
+    get_include_path(),
+)));
 
 /** Zend_Application (in library, which is now on include_path) */
 require_once 'Zend/Application.php';

@@ -38,10 +38,10 @@ See the [RAMP README] [ramp] file for RAMP's System Requirements.
 Install [Ramp] [ramp], using the Installation Instructions provided with it.
 A simplified version of those instructions appear here.
 
-1. Download or clone this repository under your server's Document Root or
-your personal web page area.
+1. Download or clone this repository under the Document Root for
+   your server or your personal web page area.
 
-1. Set up a virtual host for this Smart instance.
+1. Set up a virtual host for this Smart instance (if possible).
 
     > If you have the appropriate powers on your server, create a virtual host
     for this repository.  (Zend, and therefore RAMP, works better under its
@@ -112,14 +112,32 @@ password:
         cd ../settings
         ln -s ../../ramp/application/adminSettings Admin/rampAdmin
 
-    - If you are using git, add the `rampREADME.md` file and the
-      `docs/rampDocs` and `settings/Admin/rampAdmin` directories to
-      your `.gitignore` file.
+1. If you are using git, add the following files and directories 
+   to your `.gitignore` file in the top directory of this Smart
+   instance (the directory above configs, installation, and public).
 
-1. Bring up a Njala Prototype version of Smart in a browser, using the
-following URL:
+    installation/installDB/createMysqlAccts.sql
+    configs/custom_properties.ini
+    configs/application.ini
+    rampREADME.md
+    docs/rampDocs
+    settings/Admin/rampAdmin
 
-    /smart-njala-prototype/public/
+1. If you are running a browser on the same machine as your server, you
+   can bring up the Njala Prototype using the virtual host ServerName
+   as the URL (e.g., `njala.smart/`).  If not, unless the new virtual
+   host is being served by DNS (and, therefore, publicly accessible),
+   you will need to make changes on the client machines to see it.
+   For example, this might be a matter of editing `/etc/hosts` on
+   the client machines and adding lines that resolve the virtual
+   server names from the appropriate machine.  For example,
+
+            123.45.0.67     njala.smart  [or whatever name you used]
+
+    If you are not using virtual hosts, you can get to your Njala
+    Prototype as a subdirectory under your server name, e.g.
+
+        /my.servername.com/smart-njala-prototype/public/
 
 Please see [INSTALL.md] [install] for more detailed information.  (Under construction...)
 

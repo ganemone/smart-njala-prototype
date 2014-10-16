@@ -27,6 +27,12 @@ defined('RAMP_ADMIN_SETTINGS_PATH')
     || define('RAMP_ADMIN_SETTINGS_PATH',
         APPLICATION_PATH . '/adminSettings');
 
+// Ensure library is on include_path
+set_include_path(implode(PATH_SEPARATOR, array(
+    realpath(RAMP_PATH . '/library'),
+    get_include_path(),
+)));
+
 
 echo "<html><body>\n";
 echo "<p>This is a simple test that this server can display a basic
@@ -37,6 +43,7 @@ echo "<p>The RAMP_PATH has been set to " . RAMP_PATH . ".</p>";
 echo "<p>The APPLICATION_PATH has been set to " . APPLICATION_PATH . ".</p>";
 echo "<p>The RAMP_DOCS_PATH has been set to " . RAMP_DOCS_PATH . ".</p>";
 echo "<p>The RAMP_ADMIN_SETTINGS_PATH has been set to " . RAMP_ADMIN_SETTINGS_PATH . ".</p>";
+echo "<p>The include path has been set to " . get_include_path() . ".</p>";
 echo "</body></html>\n";
 
 ?>
