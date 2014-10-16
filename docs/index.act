@@ -25,7 +25,7 @@ type = "document"
 title = "About Ramp"
 description = "About Ramp: Records and Activity Management Program"
 ; url = <url that goes to Ramp README (github? github pages?)>
-source = "../../rampREADME.md"
+source = "../rampREADME.md"
 
 [About Smart]
 
@@ -33,7 +33,7 @@ type = "document"
 title = "About Smart"
 description = "About Smart: Software for Managing Academic Records and
 Transcripts"
-source = "../../README.md"
+source = "../README.md"
 
 [Smart User Man]
 
@@ -77,12 +77,4 @@ type = "document"
 title = "Creating Table Settings"
 description = "How to write Table Settings files"
 source = "rampDocs/TableSettings.md"
-
-[README]
-
-type = "document"
-title = "README"
-description = "The top-level README file; should it duplicate aboutRamp?
-Or point to it and to the installation 'documentation'?"
-source = "../../README.md"
 
