@@ -20,10 +20,12 @@ type = "separator"
 
 [About Ramp]
 
-type = "url"
+; type = "url"
+type = "document"
 title = "About Ramp"
 description = "About Ramp: Records and Activity Management Program"
-source = "/rampREADME.md"
+; url = <url that goes to Ramp README (github? github pages?)>
+source = "../../rampREADME.md"
 
 [About Smart]
 
@@ -31,7 +33,7 @@ type = "document"
 title = "About Smart"
 description = "About Smart: Software for Managing Academic Records and
 Transcripts"
-source = "/README.md"
+source = "../../README.md"
 
 [Smart User Man]
 
