@@ -62,7 +62,7 @@ source = "NjalaDocs/AdmissManualTutorial.md"
 type = "document"
 title = "Admin User Manual"
 description = "Ramp Administrative User Manual"
-source = "NjalaDocs/AdminManualTutorial.md"
+source = "rampDocs/AdminUserManual.md"
 
 [Act Spec Doc]
 
