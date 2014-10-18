@@ -64,11 +64,11 @@ setting up a demo or development environment; to set up a production
 environment, see the full Installation manual.)
 
     - Go to the `installation/installDB` subdirectory.  
-    -   Copy createDevelMysqlAccts.sql (_e.g._, to createMysqlAccts.sql) and
+    - Copy createDevelMysqlAccts.sql (_e.g._, to createMysqlAccts.sql) and
         make sure the file is readable only to you.  Edit it and change the
         DBA and Smart usernames and passwords (or _at least_ the passwords) to
         provide the most basic security.  
-    -   Go into `mysql` as root and read in the new file and `setupSmartDB.sql`:
+    - Go into `mysql` as root and read in the new file and `setupSmartDB.sql`:
 
             SOURCE createMysqlAccts.sql;
             SOURCE setupSmartDB.sql;
