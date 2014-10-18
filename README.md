@@ -57,14 +57,14 @@ Installing Smart:
         directory to set an appropriate ServerAdmin, ServerName and
         DocumentRoot.  
     - Enable the site:  `a2ensite smart-njala-proto`.  
-    - Restart the apache server (e.g., `service apache2 reload`).  
+    - Restart the apache server (_e.g._, `service apache2 reload`).  
 
 1.  Set up the `njala_proto` database:  (The instructions below are for
 setting up a demo or development environment; to set up a production
 environment, see the full Installation manual.)
 
     - Go to the `installation/installDB` subdirectory.  
-    -   Copy createDevelMysqlAccts.sql (e.g., to createMysqlAccts.sql) and
+    -   Copy createDevelMysqlAccts.sql (_e.g._, to createMysqlAccts.sql) and
         make sure the file is readable only to you.  Edit it and change the
         DBA and Smart usernames and passwords (or _at least_ the passwords) to
         provide the most basic security.  
@@ -127,7 +127,7 @@ password:
 
 1.  If you are running a browser on the same machine as your server, you
    can bring up the Njala Prototype using the virtual host ServerName
-   as the URL (e.g., `njala.smart/`).  If not, unless the new virtual
+   as the URL (_e.g._, `njala.smart/`).  If not, unless the new virtual
    host is being served by DNS (and, therefore, publicly accessible),
    you will need to make changes on the client machines to see it.
    For example, this might be a matter of editing `/etc/hosts` on
@@ -137,9 +137,9 @@ password:
             123.45.0.67     njala.smart  [or whatever name you used]
 
     If you are not using virtual hosts, you can get to your Njala
-    Prototype as a subdirectory under your server name, e.g.
+    Prototype as a subdirectory under your server name, _e.g._,
 
-        /my.servername.com/smart-njala-prototype/public/
+            /my.servername.com/smart-njala-prototype/public/
 
 Please see [INSTALL.md] [install] for more detailed information.  (Under construction...)
 
