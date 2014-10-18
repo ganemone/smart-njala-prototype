@@ -38,6 +38,8 @@ See the [RAMP README] [ramp] file for RAMP's System Requirements.
 Install [Ramp] [ramp], using the Installation Instructions provided with it.
 A simplified version of those instructions appear here.
 
+Installing Smart:
+
 1.  Download or clone this repository under the Document Root for
     your server or your personal web page area.
 
@@ -50,23 +52,23 @@ A simplified version of those instructions appear here.
     and then restarting the web server.  For example, on a Debian or Ubuntu
     system you would do the following using `sudo`:
 
-    > Copy `smart-njala-proto.conf` to `/etc/apache2/sites-available`.  
-    Edit the `smart-njala-proto.conf` copy in the `sites-available`
+    - Copy `smart-njala-proto.conf` to `/etc/apache2/sites-available`.  
+    - Edit the `smart-njala-proto.conf` copy in the `sites-available`
         directory to set an appropriate ServerAdmin, ServerName and
         DocumentRoot.  
-    Enable the site:  `a2ensite smart-njala-proto`.  
-    Restart the apache server (e.g., `service apache2 reload`).  
+    - Enable the site:  `a2ensite smart-njala-proto`.  
+    - Restart the apache server (e.g., `service apache2 reload`).  
 
 1.  Set up the `njala_proto` database:  (The instructions below are for
 setting up a demo or development environment; to set up a production
 environment, see the full Installation manual.)
 
-    > Go to the `installation/installDB` subdirectory.  
-      Copy createDevelMysqlAccts.sql (e.g., to createMysqlAccts.sql) and
+    - Go to the `installation/installDB` subdirectory.  
+    -   Copy createDevelMysqlAccts.sql (e.g., to createMysqlAccts.sql) and
         make sure the file is readable only to you.  Edit it and change the
         DBA and Smart usernames and passwords (or _at least_ the passwords) to
         provide the most basic security.  
-      Go into `mysql` as root and read in the new file and `setupSmartDB.sql`:
+    -   Go into `mysql` as root and read in the new file and `setupSmartDB.sql`:
 
             SOURCE createMysqlAccts.sql;
             SOURCE setupSmartDB.sql;
@@ -75,8 +77,8 @@ environment, see the full Installation manual.)
 1.  Create a customized configuration file with the correct username and
 password:
 
-    > Go to the `configs` subdirectory.  
-      Copy template_custom_properties.ini to `custom_properties.ini` and
+    - Go to the `configs` subdirectory.  
+    - Copy template_custom_properties.ini to `custom_properties.ini` and
       make sure
       the file is readable only to you and the `www-data` group (or whatever
       group your web server is part of).  Edit `custom_properties.ini` and
@@ -84,7 +86,7 @@ password:
       set in the `createMysqlAccts.sql` file above.  You may wish to
       customize other properties as well (see the `README` file in the
       `configs` directory for more details).  
-      Create an `application.ini` file that contains the following "building
+    - Create an `application.ini` file that contains the following "building
       block" files in the specified order:
         `ramp_basics.ini`, `ramp_defaults.ini`, `smart_defaults.ini`, and
         `custom_properties.ini`.
@@ -95,11 +97,11 @@ password:
 
 1.  Include basic documentation and adminstrative table settings from Ramp:
 
-    > Create a copy or link of Ramp's `README.md` file, called
+    - Create a copy or link of Ramp's `README.md` file, called
       `rampREADME.md`, in the top-level directory of this installation.
-      Then create a copy or link of Ramp's `application/docs` directory,
+    - Then create a copy or link of Ramp's `application/docs` directory,
       called `rampDocs`, under the `docs` directory in this installation.
-      Finally, create a copy or link of Ramp's `application/adminSettings`
+    - Finally, create a copy or link of Ramp's `application/adminSettings`
       directory, called `rampAdmin`, under the `settings/Admin` directory.
 
       For example, in the top-level directory (the one containing this
