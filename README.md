@@ -38,64 +38,64 @@ See the [RAMP README] [ramp] file for RAMP's System Requirements.
 Install [Ramp] [ramp], using the Installation Instructions provided with it.
 A simplified version of those instructions appear here.
 
-1. Download or clone this repository under the Document Root for
-   your server or your personal web page area.
+1.  Download or clone this repository under the Document Root for
+    your server or your personal web page area.
 
-1. Set up a virtual host for this Smart instance (if possible).
+1.  Set up a virtual host for this Smart instance (if possible).
 
-    > If you have the appropriate powers on your server, create a virtual host
+    If you have the appropriate powers on your server, create a virtual host
     for this repository.  (Zend, and therefore RAMP, works better under its
     own virtual host.)  The actual steps to take depend on your operating
     system, but involve adding the virtual host information to your system
     and then restarting the web server.  For example, on a Debian or Ubuntu
     system you would do the following using `sudo`:
 
-        > Copy `smart-njala-proto.conf` to `/etc/apache2/sites-available`.  
-        Edit the `smart-njala-proto.conf` copy in the `sites-available`
-            directory to set an appropriate ServerAdmin, ServerName and
-            DocumentRoot.  
-        Enable the site:  `a2ensite smart-njala-proto`.  
-        Restart the apache server (e.g., `service apache2 reload`).  
+    > Copy `smart-njala-proto.conf` to `/etc/apache2/sites-available`.  
+    Edit the `smart-njala-proto.conf` copy in the `sites-available`
+        directory to set an appropriate ServerAdmin, ServerName and
+        DocumentRoot.  
+    Enable the site:  `a2ensite smart-njala-proto`.  
+    Restart the apache server (e.g., `service apache2 reload`).  
 
-1. Set up the `njala_proto` database:  (The instructions below are for
+1.  Set up the `njala_proto` database:  (The instructions below are for
 setting up a demo or development environment; to set up a production
 environment, see the full Installation manual.)
 
-    - Go to the `installation/installDB` subdirectory.
-    - Copy createDevelMysqlAccts.sql (e.g., to createMysqlAccts.sql) and
-      make sure the file is readable only to you.  Edit it and change the
-      DBA and Smart usernames and passwords (or _at least_ the passwords) to
-      provide the most basic security.
-    - Go into `mysql` as root and read in the new file and `setupSmartDB.sql`:
+    > Go to the `installation/installDB` subdirectory.  
+      Copy createDevelMysqlAccts.sql (e.g., to createMysqlAccts.sql) and
+        make sure the file is readable only to you.  Edit it and change the
+        DBA and Smart usernames and passwords (or _at least_ the passwords) to
+        provide the most basic security.  
+      Go into `mysql` as root and read in the new file and `setupSmartDB.sql`:
 
-        SOURCE createMysqlAccts.sql;
-        SOURCE setupSmartDB.sql;
-        quit
+            SOURCE createMysqlAccts.sql;
+            SOURCE setupSmartDB.sql;
+            quit
 
-1. Create a customized configuration file with the correct username and
+1.  Create a customized configuration file with the correct username and
 password:
 
-    - Go to the `configs` subdirectory.
-    - Copy template_custom_properties.ini to `custom_properties.ini` and
+    > Go to the `configs` subdirectory.  
+      Copy template_custom_properties.ini to `custom_properties.ini` and
       make sure
       the file is readable only to you and the `www-data` group (or whatever
       group your web server is part of).  Edit `custom_properties.ini` and
       change the username and password to the Smart username and password
       set in the `createMysqlAccts.sql` file above.  You may wish to
       customize other properties as well (see the `README` file in the
-      `configs` directory for more details).
-    - Create an `application.ini` file that contains the following "building
+      `configs` directory for more details).  
+      Create an `application.ini` file that contains the following "building
       block" files in the specified order:
         `ramp_basics.ini`, `ramp_defaults.ini`, `smart_defaults.ini`, and
         `custom_properties.ini`.
-      For example,
+      For example,  
 
-        cat ramp_basics.ini ramp_defaults.ini >application.ini
-        cat smart_defaults.ini custom_properties.ini >>application.ini
+            cat ramp_basics.ini ramp_defaults.ini >application.ini
+            cat smart_defaults.ini custom_properties.ini >>application.ini
 
-1. Include basic documentation and adminstrative table settings from Ramp:
+1.  Include basic documentation and adminstrative table settings from Ramp:
 
-    - Create a copy or link of Ramp's `README.md` file, called
+    > Create a copy or link of Ramp's `README.md` file, called
       `rampREADME.md`, in the top-level directory of this installation.
       Then create a copy or link of Ramp's `application/docs` directory,
       called `rampDocs`, under the `docs` directory in this installation.
@@ -104,26 +104,26 @@ password:
 
       For example, in the top-level directory (the one containing this
       `README.md` file) the following commands on a Unix/Linux/MacOS
-      system would create an appropriate symbolic links:
+      system would create appropriate symbolic links:
 
-        ln -s ../ramp/README.md rampREADME.md
-        cd docs
-        ln -s ../../ramp/application/docs rampDocs
-        cd ../settings
-        ln -s ../../ramp/application/adminSettings Admin/rampAdmin
+            ln -s ../ramp/README.md rampREADME.md
+            cd docs
+            ln -s ../../ramp/application/docs rampDocs
+            cd ../settings
+            ln -s ../../ramp/application/adminSettings Admin/rampAdmin
 
-1. If you are using git, add the following files and directories 
+1.  If you are using git, add the following files and directories 
    to your `.gitignore` file in the top directory of this Smart
    instance (the directory above configs, installation, and public).
 
-    installation/installDB/createMysqlAccts.sql
-    configs/custom_properties.ini
-    configs/application.ini
-    rampREADME.md
-    docs/rampDocs
-    settings/Admin/rampAdmin
+            installation/installDB/createMysqlAccts.sql
+            configs/custom_properties.ini
+            configs/application.ini
+            rampREADME.md
+            docs/rampDocs
+            settings/Admin/rampAdmin
 
-1. If you are running a browser on the same machine as your server, you
+1.  If you are running a browser on the same machine as your server, you
    can bring up the Njala Prototype using the virtual host ServerName
    as the URL (e.g., `njala.smart/`).  If not, unless the new virtual
    host is being served by DNS (and, therefore, publicly accessible),

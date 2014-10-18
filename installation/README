@@ -80,7 +80,7 @@ createDevelMysqlAccts.sql
 setupSmartDB.sql
     This file calls most of the other files in the directory.  They
     clear out the contents of the njala_proto database (if a previous
-    version existed), and create
+    version existed), and create appropriate tables.
 
     ==> Instructions:
         Run MySQL as root or as a SMART DBA and run the setupSmartDB.sql
