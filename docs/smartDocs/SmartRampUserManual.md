@@ -1,7 +1,7 @@
-<h1> SMART: Software for Managing Academic Records and Transcripts </h1>
-<h2> User Manual </h2>
+<h1> SMART User Manual</h1>
+<!-- <h2> User Manual </h2> -->
 
-[ 
+_Sections:_ 
   [Logging In/Passwords](#login) |
   [Activity Pages](#activities) |
   [Data Searches](#search) |
@@ -9,7 +9,7 @@
   [Viewing/Editing Records](#records) |
   [New Records](#add) |
 <!--  [Reports](#reports) | -->
-  [Table Settings](#settings) ]
+  [Table Settings](#settings)
 
 <div id="intro"></div>
 
@@ -65,7 +65,7 @@ programs and courses taught), but most
 activities and tables require logging in
 first.  The login page prompts for your username and password.
 
-<img src="/images/RampUserManual/Login.png"  width="600px" />
+<img src="/images/RampUserManual/Login_Smart.png"  width="400px" />
 
 The first time you login, you need only provide your username.  The
 login process will automatically redirect you to a page where you
@@ -74,7 +74,7 @@ to recover it, but your Smart administrator can reset your password
 back to its initial state, after which you can set it again the
 next time you login in.
 
-<img src="/images/RampUserManual/InitPassword.png"  width="600px" />
+<img src="/images/RampUserManual/InitPassword_Smart.png"  width="400px" />
 
 You can also change your password at any time.  The menu items for
 changing your password and logging out appear in the upper-right
