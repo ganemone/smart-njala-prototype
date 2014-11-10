@@ -76,15 +76,15 @@ environments.
 
 Example databases might be:
 
-       ramp_demo   (a demo of basic RAMP functions)  
-       smart_demo  (a demo of typical Smart activities and functions)  
+       ramp_demo   (a demo of basic RAMP functions)
+       smart_demo  (a demo of typical Smart activities and functions)
 
-       smart_dev   (a version of Smart for active developers)  
+       smart_dev   (a version of Smart for active developers)
 
-       smart       (a production Smart environment)  
-       smart_user_tests      (a production variant containing test data)  
-       smart_automated_tests (a database created, recreated, and  
-                              populated by automated test cases)  
+       smart       (a production Smart environment)
+       smart_user_tests      (a production variant containing test data)
+       smart_automated_tests (a database created, recreated, and
+                              populated by automated test cases)
 
 The "Creating Databases and Setting MySQL Account Permissions"
 section below provides information on actually creating Ramp/Smart
@@ -340,8 +340,8 @@ make to ramp_auth_auths.
   or using phyMyAdmin.  To read in a SQL file, use the SOURCE
   command (e.g., SOURCE create_mysql_accts.sql).
 
-  [ FUTURE:  
-  NOTE: In Smart, there are some special privileges 
+  [ FUTURE:
+  NOTE: In Smart, there are some special privileges
   that allow the database to do some automatic processing when
   certain tables have been modified, and these cannot be granted
   until the database functions that do that processing have been
@@ -383,7 +383,7 @@ in the settings/Admin directory provide examples of table
 settings covering both situations (storing all necessary user
 information vs. referencing such information from another table).
 
-* __Specify Internal or External Authentication__  
+* __Specify Internal or External Authentication__
   In order for the Ramp/Smart software to know whether to use
   internal or external authentication, follow the directions
   in [Customizing application.ini][custom] to set the authentication
@@ -393,7 +393,7 @@ information vs. referencing such information from another table).
       ramp.authenticationType  (e.g., "internal")
       ramp.defaultPassword     (required for internal authentication)
 
-* __Define Roles__  
+* __Define Roles__
   Ramp/Smart has a built-in "guest" role that defines Ramp/Smart
   access that is allowed without logging in at all.  Other roles
   must be specified in the `application/configs/application.ini`
@@ -409,7 +409,7 @@ information vs. referencing such information from another table).
   Authorizations tables.  You should define such a role, whether you
   call it `ramp_dba` or something else.
 
-* __Create and Populate the Users Table__  
+* __Create and Populate the Users Table__
   For each database you wish to set up, create the database if you
   have not done so already, and then create the users and
   authorizations tables for that database.  Most new users and
@@ -427,7 +427,7 @@ information vs. referencing such information from another table).
   while the Ramp and Smart Demo installations provide additional
   examples.  (See the RampDemoSetup and SmartDemoSetup directories.)
 
-  __Defining the Users Table Schema__  
+  __Defining the Users Table Schema__
   For each user, the Users table should specify a unique username,
   a role, and an indication of whether the user is active or
   inactive.  In general, it makes sense to create users as inactive
@@ -468,7 +468,7 @@ information vs. referencing such information from another table).
         |                contact information (if there is one)           |
         ------------------------------------------------------------------
 
-  __Populating the Users Table__  
+  __Populating the Users Table__
   You only need to create one user at this stage, who should have
   a database administrator role that provides authorization to
   create additional users, modify user information, and define
@@ -488,7 +488,7 @@ information vs. referencing such information from another table).
   by modifying the Users Table directly, in order for passwords
   to be encrypted correctly.
 
-* __Create and Populate the Authorizations Table__  
+* __Create and Populate the Authorizations Table__
   The Authorizations table schema should be defined exactly as
   in create_users_auths_example.sql.  To allow the initial
   administrative user to create additional users and define
@@ -510,7 +510,7 @@ information vs. referencing such information from another table).
   file.  See [Customizing application.ini][custom]
   for more information.
 
-* __Defining Additional Users__  
+* __Defining Additional Users__
   Additional users can be added to Ramp/Smart after the initial
   installation is complete, using the Ramp/Smart software itself.
 
@@ -536,8 +536,8 @@ context.  Before deploying Smart, therefore, you should verify whether the
 set of tables and fields provided meets your situation, and, if not,
 customize them as necessary.
 
- >    [ FUTURE:  
- >    NOTE: In Smart, there are some special privileges 
+ >    [ FUTURE:
+ >    NOTE: In Smart, there are some special privileges
  >    that allow the database to do some automatic processing when
  >    certain tables have been modified, and these cannot be granted
  >    until the database functions that do that processing have been
@@ -584,7 +584,7 @@ authorizations for various roles so they are no longer read-only?  Will
 there be a provided file that defines roles such as might be used at K
 or at Njala? ]
 
-[Some of the following may be obsolete:]  
+[Some of the following may be obsolete:]
 The SmartDemoSetup/smartDev.... file defines the structure of the base
 Smart tables along with sample data for development or testing purposes.
 Edit this file as necessary and then read it into MySQL as a Ramp/Smart
@@ -639,7 +639,7 @@ original template files untouched.
 The installation directory also contains sample files for initializing
 the database schema(s) that will be used for different database
 environments (e.g., demonstration, development, test, and production
-environments), and for populating demonstration or test tables with some 
+environments), and for populating demonstration or test tables with some
 initial data.  To know which sample files to use, and how to change them
 for the specific needs of the application, the first step is to decide
 which database environments are to be setup.  For example, one might
