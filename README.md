@@ -114,17 +114,6 @@ password:
             cd ../settings
             ln -s ../../ramp/application/adminSettings Admin/rampAdmin
 
-1.  If you are using git, add the following files and directories 
-   to your `.gitignore` file in the top directory of this Smart
-   instance (the directory above configs, installation, and public).
-
-            installation/installDB/createMysqlAccts.sql
-            configs/custom_properties.ini
-            configs/application.ini
-            rampREADME.md
-            docs/rampDocs
-            settings/Admin/rampAdmin
-
 1.  If you are running a browser on the same machine as your server, you
    can bring up the Njala Prototype using the virtual host ServerName
    as the URL (_e.g._, `njala.smart/`).  If not, unless the new virtual
